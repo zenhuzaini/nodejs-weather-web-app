@@ -1,4 +1,4 @@
-console.log('app.js is loaded :D')
+// console.log('app.js is loaded :D')
 
 //fetch forecast infromation
 //make http request from the client side
