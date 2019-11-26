@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{{title}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="./img/icons/DarkSky-icons/PNG/clear-night.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+        <p>Input the location..</p>
+        <form name="the_name" action="">
+            <input name="getInputLocation" type="text" placeholder="ex: jakarta">
+            <button>Search</button>
+        </form>
+
+        <p id="message-1"></p>
+        <p id="message-2"></p>
+
+
+    </div>
+    {{>footer}}
+
+    {{!-- let all the lements loaded first then the JS --}}
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
