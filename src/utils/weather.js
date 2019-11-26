@@ -15,6 +15,7 @@ const weather = (longitude, latitude, callback) => {
                 timezone: response.body.timezone,
                 currentSummary: response.body.currently.summary,
                 currentTemperature: response.body.currently.temperature,
+                icon: response.body.currently.icon
                 // all: response.body
             }
 

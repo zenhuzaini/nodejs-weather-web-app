@@ -65,6 +65,7 @@ const search = document.querySelector('input')
 const messageOne = document.querySelector('#message-1')
 const messageTwo = document.querySelector('#message-2')
 
+
 // messageOne.textContent = `It's from Javascript`
 
 //get other weather
@@ -72,16 +73,21 @@ const theWeather = (GetAddress) => {
     messageOne.textContent = '..loading..'
     messageTwo.textContent = ''
 
+
+
     //select the p (messageID) in order to be a place to put the iformtion
     fetch(`/weather?address=${GetAddress}`).then((response) => {
         response.json().then((theNewInformation) => {
             if (theNewInformation.error) {
                 console.log(theNewInformation.error)
                 messageOne.textContent = JSON.stringify(theNewInformation.error)
+                document.getElementById("weather-icon").src = `./img/icons/emoticon/sad.png`
             } else {
                 console.log(theNewInformation)
                 messageOne.textContent = theNewInformation.location
                 messageTwo.textContent = `The temperature today in ${theNewInformation.location} is ${theNewInformation.weather.currentSummary} / (${theNewInformation.weather.currentTemperature})`
+
+                document.getElementById("weather-icon").src = `./img/icons/DarkSky-icons/PNG/${theNewInformation.weather.icon}.png`
             }
         })
     })

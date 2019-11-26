@@ -1,0 +1,66 @@
+<style>
+    .morecontent span {
+        display: none;
+    }
+
+    .morelink {
+        display: block;
+    }
+</style>
+
+{{!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> --}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+        <p class="more"><Strong>Hi, my name is Zen. </strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Duis congue suscipit enim, vel varius justo porttitor in. Proin odio lectus, sagittis nec justo non, luctus
+            egestas enim. Etiam erat eros, dictum sed tortor sed, eleifend fermentum ipsum. Proin lobortis vehicula
+            risus at varius. Vivamus maximus diam augue, scelerisque luctus dui suscipit at. Nunc elementum nisl dui,
+            vel auctor ipsum rutrum sed. Duis consequat felis egestas, imperdiet sem eget, feugiat enim. Suspendisse et
+            fringilla nibh. Donec sollicitudin libero orci, et eleifend magna pharetra et. Proin orci dolor, rutrum at
+            quam euismod, commodo tempus quam. Sed mauris arcu, congue in laoreet sed, tempus sed felis. Nam facilisis
+            velit dolor, ac congue libero consectetur vel.</p>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Configure/customize these variables.
+        var showChar = 250;  // How many characters are shown by default
+        var ellipsestext = "...";
+        var moretext = "<br><button>Show More</button>";
+        var lesstext = "<button>Show Less</button>";
+
+
+        $('.more').each(function () {
+            var content = $(this).html();
+
+            if (content.length > showChar) {
+
+                var c = content.substr(0, showChar);
+                var h = content.substr(showChar, content.length - showChar);
+
+                var html = c + '<span class="moreellipses">' + ellipsestext + ' </span><span class="morecontent"><span>' + h + '</span>  <a href="" class="morelink">' + moretext + '</a></span>';
+
+                $(this).html(html);
+            }
+
+        });
+
+        $(".morelink").click(function () {
+            if ($(this).hasClass("less")) {
+                $(this).removeClass("less");
+                $(this).html(moretext);
+            } else {
+                $(this).addClass("less");
+                $(this).html(lesstext);
+            }
+            $(this).parent().prev().toggle();
+            $(this).prev().toggle(1000);
+            return false;
+        });
+    });
+</script>
