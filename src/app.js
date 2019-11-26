@@ -3,6 +3,8 @@ const express = require('express')
 const app = express()
 const hbs = require('hbs')
 
+const port = process.env.PORT || 1996
+
 //from utils
 const geocode = require('../src/utils/geocode')
 const weather = require('../src/utils/weather')
@@ -120,6 +122,6 @@ app.get('*', (req, res) => { //* it means that can be match to everything / ever
     })
 })
 
-app.listen(1996, () => {
-    console.log('this app listen to port 1996')
+app.listen(port, () => {
+    console.log('this app listen to port ' + port)
 })

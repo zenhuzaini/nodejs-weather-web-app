@@ -15,7 +15,7 @@ fetch('http://puzzle.mead.io/puzzle').then((response) => { //then to get the ret
 })
 
 //get the url from our API
-const url = 'http://localhost:1996/weather?address=jakarta'
+const url = '/weather?address=jakarta'
 fetch(url).then((response) => {
     //get the response using json method
     response.json().then((information) => {
@@ -29,7 +29,7 @@ fetch(url).then((response) => {
     })
 })
 
-fetch('http://localhost:1996/weather?address=Swidnica').then((response) => {
+fetch('/weather?address=Swidnica').then((response) => {
     response.json().then((data) => {
         if (data.error) {
             console.log(data.error)
@@ -40,7 +40,7 @@ fetch('http://localhost:1996/weather?address=Swidnica').then((response) => {
 })
 
 const fungsi = (param) => {
-    fetch(`http://localhost:1996/weather?address=${param}`).then((the_response) => {
+    fetch(`/weather?address=${param}`).then((the_response) => {
         the_response.json().then((data) => {
             if (data.error) {
                 console.log(data.error)
@@ -73,7 +73,7 @@ const theWeather = (GetAddress) => {
     messageTwo.textContent = ''
 
     //select the p (messageID) in order to be a place to put the iformtion
-    fetch(`http://localhost:1996/weather?address=${GetAddress}`).then((response) => {
+    fetch(`/weather?address=${GetAddress}`).then((response) => {
         response.json().then((theNewInformation) => {
             if (theNewInformation.error) {
                 console.log(theNewInformation.error)
