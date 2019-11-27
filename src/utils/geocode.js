@@ -5,7 +5,12 @@ const geocode = (area, callback) => {
 
     request({ url, json: true }, (err, res) => {
         if (err) {
-            callback('No inet connection', undefined)
+            //condition if we use different alphabet
+            if (err.message === "Request path contains unescaped characters") {
+                return callback("Please try using international Alphabet", undefined)
+            }
+            callback("No internet connection! " + err.message, undefined)
+
         } else if (res.body.features.length === 0) {
             callback('data cannot be fetched, try other keywords', undefined)
         } else {
@@ -20,8 +25,8 @@ const geocode = (area, callback) => {
     })
 }
 
-// // const location = process.argv[2]
-// geocode('e1423k', (err, data) => {
+// const location = process.argv[2]
+// geocode('Wroclaw', (err, data) => {
 //     if (data === undefined) {
 //         console.log(err)
 //     } else {
